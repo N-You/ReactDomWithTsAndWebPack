@@ -5,7 +5,7 @@ const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const MiniExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const prodConfig = {
   mode: 'production',
@@ -16,7 +16,7 @@ const prodConfig = {
     clean: true,
   },
   plugins: [
-    new MiniExtractPlugin({ filename: 'static/css/[name].[contenthash:8].css' }),
+    new MiniCssExtractPlugin({ filename: 'static/css/[name].[contenthash:8].css' }),
     new CopyWebpackPlugin({
       patterns: [
         {
