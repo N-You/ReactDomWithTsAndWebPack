@@ -1,14 +1,14 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.base');
+const paths = require('./paths');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const MiniExtractPlugin = require('mini-css-extract-plugin');
-import paths from './paths';
 
 const prodConfig = {
-  mode: 'produciton',
+  mode: 'production',
   output: {
     path: paths.build,
     filename: 'static/js/[name].[chunkhash].js',
@@ -50,7 +50,6 @@ const prodConfig = {
           },
         },
         extractComments: false,
-        parallel: threads,
       }),
     ],
     nodeEnv: 'production',
@@ -76,4 +75,4 @@ const prodConfig = {
   devtool: 'source-map',
 };
 
-modult.exports = merge(common, prodConfig);
+module.exports = merge(common, prodConfig);

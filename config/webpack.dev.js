@@ -12,6 +12,7 @@ const devConfig = {
   output: {
     filename: 'static/js/[name].js',
     chunkFilename: 'static/js/[name].chunk.js',
+    clean: true,
   },
 
   optimization: {
@@ -19,14 +20,18 @@ const devConfig = {
       chunks: 'all',
     },
   },
-  plugins: [new HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()].filter(Boolean),
+  plugins: [
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin({
+      exclude: [/node_modules/],
+    }),
+  ].filter(Boolean),
   devServer: {
     port: 8000,
     devMiddleware: {
       publicPath: '/',
     },
     open: true,
-    hot: true,
     historyApiFallback: true,
   },
   devtool: 'cheap-module-source-map',

@@ -26,10 +26,6 @@ function getCssStyle(arg, options) {
 
 module.exports = {
   entry: './src/index.tsx',
-  output: {
-    path: paths.build,
-    filename: '[name].[contenthash:10].js',
-  },
   module: {
     rules: [
       // css
@@ -53,11 +49,13 @@ module.exports = {
           },
         }),
       },
-      //ts tsx
+      //ts tsx js jsx
       {
-        test: /\.(ts | tsx)$/,
-        use: 'babel-loader',
-        exclude: /(node_modules|dist)/,
+        test: /\.(ts|js)x?$/i,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(gif|png|jpe?g|webp|svg)$/,
