@@ -1,10 +1,14 @@
-import * as React from 'react'
-import { Hello } from './components/Hello'
+import * as React from 'react';
+import { Hello } from './components/Hello';
+import Board from './pages/TacTicToe/Board';
 
-function App(){
+function App() {
   return (
-    <Hello compiler="TypeScript" framework="React" />
-  )
+    <div>
+      <Board></Board>
+      <Hello compiler="TypeScript" framework="React" />
+    </div>
+  );
 }
 
-export default App
+export default App;
