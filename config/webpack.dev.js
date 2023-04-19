@@ -31,7 +31,7 @@ const devConfig = {
     devMiddleware: {
       publicPath: '/',
     },
-    open: true,
+    open: false,
     historyApiFallback: true,
   },
   devtool: 'cheap-module-source-map',
