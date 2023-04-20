@@ -1,9 +1,10 @@
 import React from 'react';
 import './Navbar.sass';
 
-const Navbar = () => {
+const Navbar = (props: any) => {
+  let { items, clearItems } = props;
   const btnClick = () => {
-    alert('btn');
+    clearItems();
   };
 
   return (
@@ -12,12 +13,16 @@ const Navbar = () => {
         <a href="" className="navbar-brand text-white">
           React TodoList
         </a>
-        <button
-          className="text-white rounded border-green-500 bg-black float-right"
-          onClick={btnClick}
-        >
-          清除
-        </button>
+        {items.length > 0 ? (
+          <button
+            className="text-white rounded border-green-500 bg-black float-right"
+            onClick={btnClick}
+          >
+            清除
+          </button>
+        ) : (
+          ''
+        )}
       </div>
     </nav>
   );
